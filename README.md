@@ -34,6 +34,7 @@ Add `load-path` and load the library, e.g.,
 ### `(strptime STRING FORMAT)`
 
 Parse the time in STRING according to FORMAT.
+Return (SEC MINUTE HOUR DAY MONTH YEAR DOW DST UTCOFF).
 
 ## Requires
 

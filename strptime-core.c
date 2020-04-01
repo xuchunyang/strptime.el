@@ -77,7 +77,9 @@ emacs_module_init(struct emacs_runtime *runtime)
   emacs_env *env = runtime->get_environment (runtime);
   emacs_value func = env->make_function
     (env, 2, 2, strptime_core,
-     "Parse the time in STRING according to FORMAT.\n\n(fn string format)",
+     "Parse the time in STRING according to FORMAT.\n"
+     "Return (SEC MINUTE HOUR DAY MONTH YEAR DOW DST UTCOFF).\n\n"
+     "(fn string format)",
      NULL);
   emacs_value symbol = env->intern (env, "strptime-core");
   emacs_value args[] = {symbol, func};

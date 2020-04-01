@@ -17,13 +17,9 @@ jobs:
         version: ${{ matrix.emacs_version }}
 
     - uses: actions/checkout@v2
-    - name: find emacs-module.h
-      run: |
-        find / -type f -name emacs-module.h
     - name: Build the dynamic module
       run: |
-        curl -O https://gist.githubusercontent.com/xuchunyang/97b7f3beb42bd966a6966cf842758401/raw/8d1d0712657e94f1bd289f481cd77be4659ca1df/emacs-module.h
-        cc -I $PWD -shared -fpic strptime-core.c -o strptime-core.so
+        cc -I$HOME/.nix-profile/include -shared -fpic strptime-core.c -o strptime-core.so
     - name: Byte compile
       run: |
         emacs -Q --batch -L . --eval "(setq byte-compile-error-on-warn t)" -f batch-byte-compile *.el

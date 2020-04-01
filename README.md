@@ -1,6 +1,6 @@
 # An Emacs dynamic module for `strptime(3)`
 
-Emacs proides `format-time-string` which is basically a wrapper of
+Emacs provides `format-time-string` which is basically a wrapper of
 `strftime(3)`. `strptime(3)` is the converse of `strftime(3)`, however Emacs
 doesn't have a wrapper of it, hence this module.
 

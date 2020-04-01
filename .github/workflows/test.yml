@@ -19,7 +19,8 @@ jobs:
     - uses: actions/checkout@v2
     - name: Build the dynamic module
       run: |
-        make
+        curl -O https://gist.githubusercontent.com/xuchunyang/97b7f3beb42bd966a6966cf842758401/raw/8d1d0712657e94f1bd289f481cd77be4659ca1df/emacs-module.h
+        cc -I $PWD -shared -fpic strptime-core.c -o strptime-core.so
     - name: Byte compile
       run: |
         emacs -Q --batch -L . --eval "(setq byte-compile-error-on-warn t)" -f batch-byte-compile *.el

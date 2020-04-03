@@ -8,7 +8,8 @@ jobs:
     strategy:
       matrix:
         emacs_version:
-          - 26.1
+          # XXX Emacs 26.1's make install doesn't install emacs-module.h
+          # - 26.1
           - 26.3
           - snapshot
     steps:
